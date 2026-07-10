@@ -1,0 +1,16 @@
+{
+  "name": "bandu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MVP0 for an AI reading agent: Chapter 1 reading pack generator.",
+  "scripts": {
+    "chapter1:fetch": "node scripts/fetch-chapter1.mjs",
+    "chapter1:segment": "node scripts/build-chapter1-segmentation.mjs",
+    "chapter1:build": "node scripts/build-chapter1-pack.mjs",
+    "chapter1:structure": "node scripts/build-chapter1-pack.mjs --structure-only"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
