@@ -1,0 +1,4 @@
+interface:
+  display_name: "前置分析"
+  short_description: "Add grounded conflict, difficulty, and commentary plans"
+  default_prompt: "Use $pre-analysis to enrich a book-segmentation JSON with conflict, difficulty, and commentary plans while preserving every existing field."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Book Commentary"
+  short_description: "Write one source-ordered final commentary JSON"
+  default_prompt: "Use $book-commentary to write one source-ordered JSON containing only final structural and beat commentary."
