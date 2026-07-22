@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Review"
+  short_description: "Audit final commentary JSON and write one scored review report"
+  default_prompt: "Use $commentary-review to audit a final commentary JSON against its original segmentation and write one <base-stem>.review.json with grounded findings and per-chapter dimension scores."
