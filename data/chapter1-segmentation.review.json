@@ -10,586 +10,234 @@
   "inputs": {
     "segmentation_path": "data/chapter1-segmentation.json",
     "commentary_path": "data/chapter1-segmentation.commentary.json",
-    "commentary_sha256": "3385c716c6b388287e57573af7318ce68961e8b38121376fc1ae9a6f15a02cf1"
+    "commentary_sha256": "114a8a555f1469c0639f1022ff70f1c2d814c0f89125e979ba028e5094282a8b"
   },
   "settings": {
     "output_language": "zh-CN",
     "reader_profile": "curious beginner with no assumed domain knowledge",
-    "dimensions": [
-      "accuracy",
-      "consistency",
-      "simplicity",
-      "fun"
-    ],
-    "severity_levels": [
-      "blocker",
-      "major",
-      "minor"
-    ],
+    "dimensions": ["accuracy", "consistency", "simplicity", "fun"],
+    "severity_levels": ["blocker", "major", "minor"],
     "score_scale": "0-10"
   },
   "precheck": {
-    "texts_indexed": 70,
+    "texts_indexed": 64,
     "form_counts": {
-      "mini_dialogue": 21,
-      "contrast_pair": 15,
-      "arrow_chain": 13,
-      "core_question": 6,
-      "bullet_breakdown": 3,
-      "scene_then_point": 1,
-      "short_paragraph": 1
+      "short_paragraph": 16,
+      "scene_then_point": 10,
+      "mini_dialogue": 8,
+      "contrast_pair": 7,
+      "arrow_chain": 6,
+      "core_question": 4,
+      "bullet_breakdown": 3
     },
     "max_form_run": {
-      "form": "contrast_pair",
-      "length": 2,
+      "form": "short_paragraph",
+      "length": 3,
       "addresses": [
-        "c01-s01#opening_hook",
-        "c01-s01-b01#0:mentor"
+        "c01-s02-b08#1:student",
+        "c01-s02-b09#0:mentor",
+        "c01-s02-b09#1:student"
       ]
     },
     "duplicate_pairs": [],
     "repeated_openings": [],
     "length_stats": {
-      "beat_commentary:mentor": {
-        "count": 29,
-        "min": 65,
-        "mean": 90.5,
-        "max": 165
-      },
-      "beat_commentary:student": {
-        "count": 21,
-        "min": 35,
-        "mean": 44.9,
-        "max": 59
-      },
-      "closing_question:mentor": {
-        "count": 9,
-        "min": 30,
-        "mean": 34.4,
-        "max": 39
-      },
-      "closing_question:student": {
-        "count": 1,
-        "min": 31,
-        "mean": 31,
-        "max": 31
-      },
-      "opening_hook:mentor": {
-        "count": 9,
-        "min": 65,
-        "mean": 74.4,
-        "max": 81
-      },
-      "opening_hook:student": {
-        "count": 1,
-        "min": 78,
-        "mean": 78,
-        "max": 78
-      }
+      "beat_commentary:mentor": {"count": 22, "min": 59, "mean": 101.6, "max": 183},
+      "beat_commentary:student": {"count": 22, "min": 47, "mean": 60.5, "max": 79},
+      "closing_question:mentor": {"count": 7, "min": 27, "mean": 32, "max": 37},
+      "closing_question:student": {"count": 3, "min": 26, "mean": 28.3, "max": 32},
+      "opening_hook:mentor": {"count": 7, "min": 56, "mean": 65.6, "max": 74},
+      "opening_hook:student": {"count": 3, "min": 46, "mean": 59.3, "max": 67}
     },
     "term_first_mention": [
-      {
-        "term": "提示",
-        "texts": 31,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "工具",
-        "texts": 16,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "不是",
-        "texts": 14,
-        "first": "c01-s01#opening_hook"
-      },
-      {
-        "term": "交接",
-        "texts": 14,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "模型",
-        "texts": 13,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "示词",
-        "texts": 13,
-        "first": "c01-s01#opening_hook"
-      },
-      {
-        "term": "结果",
-        "texts": 13,
-        "first": "c01#closing_question"
-      },
-      {
-        "term": "词链",
-        "texts": 13,
-        "first": "c01-s01#opening_hook"
-      },
-      {
-        "term": "任务",
-        "texts": 12,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "检查",
-        "texts": 12,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "状态",
-        "texts": 12,
-        "first": "c01-s01-b03#0:mentor"
-      },
-      {
-        "term": "一个",
-        "texts": 11,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "信息",
-        "texts": 11,
-        "first": "c01-s01-b02#0:mentor"
-      },
-      {
-        "term": "什么",
-        "texts": 10,
-        "first": "c01-s01-b06#0:mentor"
-      },
-      {
-        "term": "调用",
-        "texts": 10,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "检索",
-        "texts": 9,
-        "first": "c01-s02#opening_hook"
-      },
-      {
-        "term": "问题",
-        "texts": 9,
-        "first": "c01-s01-b01#0:mentor"
-      },
-      {
-        "term": "一次",
-        "texts": 8,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "一步",
-        "texts": 8,
-        "first": "c01-s01#closing_question"
-      },
-      {
-        "term": "上下",
-        "texts": 8,
-        "first": "c01-s01-b04#0:mentor"
-      },
-      {
-        "term": "下文",
-        "texts": 8,
-        "first": "c01-s01-b04#0:mentor"
-      },
-      {
-        "term": "输出",
-        "texts": 8,
-        "first": "c01-s01#closing_question"
-      },
-      {
-        "term": "只是",
-        "texts": 7,
-        "first": "c01-s01-b01#1:student"
-      },
-      {
-        "term": "拆成",
-        "texts": 7,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "指令",
-        "texts": 7,
-        "first": "c01-s01-b04#0:mentor"
-      },
-      {
-        "term": "数据",
-        "texts": 7,
-        "first": "c01-s01-b02#0:mentor"
-      },
-      {
-        "term": "步骤",
-        "texts": 7,
-        "first": "c01#closing_question"
-      },
-      {
-        "term": "系统",
-        "texts": 7,
-        "first": "c01-s04#opening_hook"
-      },
-      {
-        "term": "输入",
-        "texts": 7,
-        "first": "c01-s01-b02#0:mentor"
-      },
-      {
-        "term": "一条",
-        "texts": 6,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "下一",
-        "texts": 6,
-        "first": "c01-s01#closing_question"
-      },
-      {
-        "term": "你会",
-        "texts": 6,
-        "first": "book01#closing_question"
-      },
-      {
-        "term": "历史",
-        "texts": 6,
-        "first": "c01-s04#opening_hook"
-      },
-      {
-        "term": "可检",
-        "texts": 6,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "完成",
-        "texts": 6,
-        "first": "c01-s01-b02#0:mentor"
-      },
-      {
-        "term": "怎么",
-        "texts": 6,
-        "first": "c01-s02-b03#1:student"
-      },
-      {
-        "term": "推理",
-        "texts": 6,
-        "first": "c01-s01-b03#0:mentor"
-      },
-      {
-        "term": "编排",
-        "texts": 6,
-        "first": "c01-s02-b01#0:mentor"
-      },
-      {
-        "term": "而是",
-        "texts": 6,
-        "first": "c01-s01#opening_hook"
-      },
-      {
-        "term": "这条",
-        "texts": 6,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "个提",
-        "texts": 5,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "产物",
-        "texts": 5,
-        "first": "c01-s01-b06#0:mentor"
-      },
-      {
-        "term": "代码",
-        "texts": 5,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "前一",
-        "texts": 5,
-        "first": "c01-s01-b02#0:mentor"
-      },
-      {
-        "term": "单提",
-        "texts": 5,
-        "first": "book01#opening_hook"
-      },
-      {
-        "term": "复杂",
-        "texts": 5,
-        "first": "c01#opening_hook"
-      },
-      {
-        "term": "字段",
-        "texts": 5,
-        "first": "c01-s01-b07#0:mentor"
-      },
-      {
-        "term": "完整",
-        "texts": 5,
-        "first": "c01-s01-b07#0:mentor"
-      },
-      {
-        "term": "控制",
-        "texts": 5,
-        "first": "c01-s01#closing_question"
-      },
-      {
-        "term": "提取",
-        "texts": 5,
-        "first": "c01-s01-b04#1:student"
-      }
+      {"term": "提示", "texts": 19, "first": "book01#closing_question"},
+      {"term": "模型", "texts": 18, "first": "book01#opening_hook"},
+      {"term": "什么", "texts": 17, "first": "book01#closing_question"},
+      {"term": "示词", "texts": 16, "first": "book01#closing_question"},
+      {"term": "就是", "texts": 14, "first": "c01-s01-b02#0:mentor"},
+      {"term": "输出", "texts": 14, "first": "c01-s01-b02#0:mentor"},
+      {"term": "一个", "texts": 13, "first": "book01#opening_hook"},
+      {"term": "不是", "texts": 10, "first": "book01#opening_hook"},
+      {"term": "数据", "texts": 10, "first": "c01#opening_hook"},
+      {"term": "一步", "texts": 9, "first": "c01-s01#closing_question"},
+      {"term": "一条", "texts": 8, "first": "c01#closing_question"},
+      {"term": "上一", "texts": 8, "first": "c01-s01-b02#0:mentor"},
+      {"term": "任务", "texts": 8, "first": "book01#opening_hook"},
+      {"term": "上下", "texts": 7, "first": "c01-s01-b02#0:mentor"},
+      {"term": "下文", "texts": 7, "first": "c01-s01-b02#0:mentor"},
+      {"term": "第一", "texts": 7, "first": "book01#closing_question"},
+      {"term": "答案", "texts": 7, "first": "book01#opening_hook"},
+      {"term": "一句", "texts": 6, "first": "c01-s01-b07#1:student"},
+      {"term": "下一", "texts": 6, "first": "c01-s01-b02#0:mentor"},
+      {"term": "代码", "texts": 6, "first": "c01-s02#opening_hook"},
+      {"term": "句话", "texts": 6, "first": "c01-s04#opening_hook"},
+      {"term": "同一", "texts": 6, "first": "c01-s01#opening_hook"},
+      {"term": "文档", "texts": 6, "first": "c01-s02#opening_hook"},
+      {"term": "系统", "texts": 6, "first": "c01-s02-b04#0:mentor"},
+      {"term": "这一", "texts": 6, "first": "c01#closing_question"},
+      {"term": "邮件", "texts": 6, "first": "c01#opening_hook"},
+      {"term": "一节", "texts": 5, "first": "c01-s02-b07#0:student"},
+      {"term": "为什", "texts": 5, "first": "c01#opening_hook"},
+      {"term": "件事", "texts": 5, "first": "c01-s01#opening_hook"},
+      {"term": "信息", "texts": 5, "first": "c01-s01#opening_hook"},
+      {"term": "工具", "texts": 5, "first": "c01-s01-b03#0:mentor"},
+      {"term": "总结", "texts": 5, "first": "c01#opening_hook"},
+      {"term": "成一", "texts": 5, "first": "book01#closing_question"},
+      {"term": "拆成", "texts": 5, "first": "book01#closing_question"},
+      {"term": "提取", "texts": 5, "first": "c01#opening_hook"},
+      {"term": "最后", "texts": 5, "first": "c01-s01#closing_question"},
+      {"term": "的输", "texts": 5, "first": "c01-s01#closing_question"},
+      {"term": "自己", "texts": 5, "first": "c01#closing_question"},
+      {"term": "输入", "texts": 5, "first": "c01-s01#closing_question"},
+      {"term": "还是", "texts": 5, "first": "book01#opening_hook"},
+      {"term": "问题", "texts": 5, "first": "book01#opening_hook"},
+      {"term": "一串", "texts": 4, "first": "book01#closing_question"},
+      {"term": "一段", "texts": 4, "first": "c01-s01#closing_question"},
+      {"term": "一轮", "texts": 4, "first": "c01-s02-b05#0:mentor"},
+      {"term": "两个", "texts": 4, "first": "c01-s01-b01#0:mentor"},
+      {"term": "分析", "texts": 4, "first": "c01#opening_hook"},
+      {"term": "名字", "texts": 4, "first": "c01-s01-b01#0:mentor"},
+      {"term": "四条", "texts": 4, "first": "c01-s05-b03#0:student"},
+      {"term": "回去", "texts": 4, "first": "c01-s02-b07#0:student"},
+      {"term": "在哪", "texts": 4, "first": "book01#opening_hook"}
     ]
   },
   "findings": [
     {
       "finding_id": "F001",
-      "target_id": "book01",
-      "unit_type": "book",
-      "commentary_ref": {
-        "kind": "opening_hook"
-      },
-      "related_target_ids": null,
-      "dimension": "simplicity",
-      "severity": "minor",
-      "issue": "钩子里的“迁移判断”是未经解释的抽象说法，零背景读者无法推断它指“何时值得换用链”的判断。",
+      "target_id": "c01",
+      "unit_type": "chapter",
+      "commentary_ref": null,
+      "related_target_ids": ["c01-s02-b08", "c01-s02-b09"],
+      "dimension": "consistency",
+      "severity": "major",
+      "issue": "s02-b08 学生评、s02-b09 导师评与学生评连续三条均为 short_paragraph 形式，节奏在第二节后段趋平，削弱交替感。",
       "evidence": {
-        "commentary_quote": "代码落地与迁移判断",
-        "source_refs": []
+        "commentary_quote": "模型负责发挥，代码站在两次发挥之间把关",
+        "source_refs": [
+          {"target_id": "c01-s02-b08", "quote_from": "commentary", "quote": "你以为它是记性好的老朋友"}
+        ]
       },
-      "suggestion": "把“迁移判断”换成具体说法，例如“什么时候值得把任务改成链”。"
+      "suggestion": "将 c01-s02-b09 的学生评改为对话或场景形式（如程序员自嘲的一句对白），打断三连短段落。"
     },
     {
       "finding_id": "F002",
       "target_id": "c01",
       "unit_type": "chapter",
       "commentary_ref": null,
-      "related_target_ids": [
-        "c01-s01-b03",
-        "c01-s01-b06",
-        "c01-s02-b05",
-        "c01-s04-b03",
-        "c01-s07-b01",
-        "c01-s08-b01"
-      ],
+      "related_target_ids": ["c01-s01-b02", "c01-s01-b07", "c01-s06-b01"],
       "dimension": "consistency",
-      "severity": "major",
-      "issue": "导师评论约半数以“X 不等于/不保证/不会自动 Y”式边界澄清收尾，同一种落点在全章反复出现，读感趋同。",
+      "severity": "minor",
+      "issue": "\"接力/交棒\"意象在三处学生评论中重复出现（接过上一棒、上一棒交来、接力赛道），到 s06 计划内的接力类比登场时新鲜感已被提前消耗。",
       "evidence": {
-        "commentary_quote": "它提供可控骨架，不会自动长成完整智能体",
+        "commentary_quote": "我接过上一棒的笔记",
         "source_refs": [
-          {
-            "target_id": "c01-s01-b03",
-            "quote_from": "commentary",
-            "quote": "却不会因串了几个提示就自动获得自主性"
-          },
-          {
-            "target_id": "c01-s02-b05",
-            "quote_from": "commentary",
-            "quote": "格式通过仍不等于内容真实"
-          }
+          {"target_id": "c01-s01-b07", "quote_from": "commentary", "quote": "上一棒交来一句"},
+          {"target_id": "c01-s06-b01", "quote_from": "commentary", "quote": "这是条接力赛道"}
         ]
       },
-      "suggestion": "保留三分之一以内的边界澄清收尾，其余改用场景、后果或正向机制收尾，避免同一节奏连续出现。"
+      "suggestion": "把 s01-b02、s01-b07 学生评中的\"棒\"字表述改为\"上一班/前一步\"等中性说法，让接力类比留给 s06 首发。"
     },
     {
       "finding_id": "F003",
-      "target_id": "c01",
-      "unit_type": "chapter",
-      "commentary_ref": null,
-      "related_target_ids": [
-        "c01-s01-b01",
-        "c01-s01-b04",
-        "c01-s02-b09",
-        "c01-s05-b01"
-      ],
-      "dimension": "consistency",
-      "severity": "major",
-      "issue": "全部 21 条学生吐槽都是“甲说天真断言、乙一句拆台”的两行对话，脚手架高度雷同（见 precheck form_counts.mini_dialogue=21）。",
+      "target_id": "c01-s01-b03",
+      "unit_type": "beat",
+      "commentary_ref": {"kind": "beat_commentary", "index": 0, "voice": "mentor"},
+      "related_target_ids": null,
+      "dimension": "accuracy",
+      "severity": "minor",
+      "issue": "评论把\"行动\"直接等同于\"链上那次工具调用\"，该拍源文只说智能体在动态环境中行动，并未给出这一具体对应。",
       "evidence": {
-        "commentary_quote": "甲：模型已经检查过自己，代码没问题。",
+        "commentary_quote": "行动，是链上那次工具调用",
         "source_refs": [
-          {
-            "target_id": "c01-s01-b01",
-            "quote_from": "commentary",
-            "quote": "把同一段提示复制三次，这下有提示词链了"
-          },
-          {
-            "target_id": "c01-s05-b01",
-            "quote_from": "commentary",
-            "quote": "甲：它又漏要求了"
-          }
+          {"target_id": "c01-s01-b03", "quote_from": "source", "quote": "这些智能体可以利用提示词链在动态环境中自主规划、推理和行动"}
         ]
       },
-      "suggestion": "把至少三分之一的吐槽改成单句毒舌、错位重述或场景速写，打散甲乙问答的固定节奏。"
+      "suggestion": "改为\"行动，落在链上就是执行某一步（比如调用外部工具）\"，或以陪读口吻标注这是帮助理解的对应，而非书中原话。"
     },
     {
       "finding_id": "F004",
-      "target_id": "c01",
-      "unit_type": "chapter",
-      "commentary_ref": null,
-      "related_target_ids": [
-        "c01-s01-b02",
-        "c01-s06",
-        "c01-s06-b01",
-        "c01-s07-b01"
-      ],
+      "target_id": "c01-s02-b05",
+      "unit_type": "beat",
+      "commentary_ref": {"kind": "beat_commentary", "index": 0, "voice": "mentor"},
+      "related_target_ids": null,
       "dimension": "consistency",
       "severity": "major",
-      "issue": "“前一步输出成为下一步输入”在 c01-s01-b02 已完整讲解，s06 钩子与 s06-b01 评论又近乎逐字重讲，s07-b01 再复述一遍，后文是重复解释而非复用。",
+      "issue": "评论断言校验步骤由\"写死规则的处理逻辑\"执行，这是 b09 才正式引入的\"确定性逻辑\"概念的前置讲解；b05 源文只区分了提示词步骤与处理步骤，未说明执行者。",
       "evidence": {
-        "commentary_quote": "前一节点的输出，成为后一节点的输入",
+        "commentary_quote": "质检员不是模型自己，是写死规则的处理逻辑",
         "source_refs": [
-          {
-            "target_id": "c01-s06",
-            "quote_from": "commentary",
-            "quote": "前一个节点的输出，必须成为后一个节点的输入"
-          },
-          {
-            "target_id": "c01-s01-b02",
-            "quote_from": "commentary",
-            "quote": "前一步产出 → 变成后一步可用的输入"
-          }
+          {"target_id": "c01-s02-b05", "quote_from": "source", "quote": "处理：检查是否提取了所有必需字段"},
+          {"target_id": "c01-s02-b09", "quote_from": "source", "quote": "允许在模型调用之间插入确定性逻辑"}
         ]
       },
-      "suggestion": "s06/s07 处改为一句指回（如“还是那条交接线”），把篇幅留给该图/要点独有的信息。"
+      "suggestion": "b05 处只说\"负责验收的是流程里的处理步骤，不是又一次提示词\"，把\"由确定性代码把关\"的机制留给 b09 揭晓。"
     },
     {
       "finding_id": "F005",
-      "target_id": "c01-s01-b03",
+      "target_id": "c01-s02-b08",
       "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 0,
-        "voice": "mentor"
-      },
+      "commentary_ref": {"kind": "beat_commentary", "index": 1, "voice": "student"},
       "related_target_ids": null,
-      "dimension": "simplicity",
+      "dimension": "accuracy",
       "severity": "minor",
-      "issue": "“认知等价”是哲学味术语，未作解释，零背景读者需要自行猜测含义。",
+      "issue": "\"每一轮它都全新失忆\"以绝对化口吻断言模型无状态；源文只说每轮构建新提示词并合并先前信息，未直接陈述\"完全失忆\"。",
       "evidence": {
-        "commentary_quote": "不等于认知等价",
-        "source_refs": []
+        "commentary_quote": "每一轮它都全新失忆",
+        "source_refs": [
+          {"target_id": "c01-s02-b08", "quote_from": "source", "quote": "该提示词系统地合并来自对话序列中先前交互的信息"}
+        ]
       },
-      "suggestion": "改成白话，例如“像人类思维，不等于真的和人想的一样”。"
+      "suggestion": "改为\"每一轮都从新提示词开始\"之类贴源表述，把\"失忆\"保留为一望即知的比喻而非事实断言。"
     },
     {
       "finding_id": "F006",
-      "target_id": "c01-s01-b06",
+      "target_id": "c01-s04-b03",
       "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 0,
-        "voice": "mentor"
-      },
+      "commentary_ref": {"kind": "beat_commentary", "index": 1, "voice": "student"},
       "related_target_ids": null,
       "dimension": "accuracy",
       "severity": "minor",
-      "issue": "原文把分配角色表述为“确保各步骤准确性”的手段，评论断言“角色本身不保证准确”，用自己的边界替换了书的立场。",
+      "issue": "\"一晚上评完几百版\"给优化器加了源文没有的吞吐量数字；源文只说大规模自动化，未给出版本数或时间。",
       "evidence": {
-        "commentary_quote": "角色本身不保证准确",
+        "commentary_quote": "一晚上评完几百版",
         "source_refs": [
-          {
-            "target_id": "c01-s01-b06",
-            "quote_from": "source",
-            "quote": "为确保各步骤的准确性，可以在每个阶段为模型分配不同角色"
-          }
+          {"target_id": "c01-s04-b03", "quote_from": "source", "quote": "大规模自动化改进过程"}
         ]
       },
-      "suggestion": "措辞改为归属清晰的补充，如“书中用角色来提高准确性；真正起作用的是角色绑定的具体操作”。"
+      "suggestion": "去掉具体数字，改为\"批量评完一整套\"或\"按指标一口气评完全部样本\"。"
     },
     {
       "finding_id": "F007",
-      "target_id": "c01-s02-b01",
+      "target_id": "c01-s05-b01",
       "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 0,
-        "voice": "mentor"
-      },
-      "related_target_ids": null,
-      "dimension": "consistency",
-      "severity": "major",
-      "issue": "该评论在用例一节开头就给出“简单任务不必上链”的适用判断，前置讲解了 s05-b03“实践建议”才出现的内容。",
-      "evidence": {
-        "commentary_quote": "不必上链：简单任务一次就能清楚完成",
-        "source_refs": [
-          {
-            "target_id": "c01-s05-b03",
-            "quote_from": "source",
-            "quote": "当任务对于单个提示词过于复杂"
-          }
-        ]
-      },
-      "suggestion": "此处只界定“何时适合上链”，把“简单任务别上链”的判断留给 s05-b03，届时可回指本节用例。"
-    },
-    {
-      "finding_id": "F008",
-      "target_id": "c01-s02-b01",
-      "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 0,
-        "voice": "mentor"
-      },
+      "commentary_ref": {"kind": "beat_commentary", "index": 0, "voice": "student"},
       "related_target_ids": null,
       "dimension": "accuracy",
       "severity": "minor",
-      "issue": "“额外调用、延迟和编排成本”是评论自带的工程常识，本节原文没有任何成本论述，紧贴书面表述容易被当成书中主张。",
+      "issue": "\"第一节两页内容\"中的页数是杜撰计量，源文与分段数据均无页码概念。",
       "evidence": {
-        "commentary_quote": "额外调用、延迟和编排成本",
+        "commentary_quote": "第一节两页内容",
         "source_refs": [
-          {
-            "target_id": "c01-s02-b01",
-            "quote_from": "source",
-            "quote": "提示词链是一种多用途模式"
-          }
+          {"target_id": "c01-s05-b01", "quote_from": "source", "quote": "复杂任务在单个提示词内处理时通常会使 LLM 不堪重负"}
         ]
       },
-      "suggestion": "标明这是提醒而非书中内容，或删去成本清单，仅保留“简单任务未必需要链”的判断。"
+      "suggestion": "改为\"第一节整段失败分析的闪卡\"，避免具体页数。"
     },
     {
-      "finding_id": "F009",
-      "target_id": "c01-s03-b03",
+      "finding_id": "F008",
+      "target_id": "c01-s05-b01",
       "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 0,
-        "voice": "mentor"
-      },
+      "commentary_ref": {"kind": "beat_commentary", "index": 0, "voice": "student"},
       "related_target_ids": null,
-      "dimension": "simplicity",
+      "dimension": "fun",
       "severity": "minor",
-      "issue": "单句串起 8 个节点并混排代码标识，165 字的箭头链密度过高，零背景读者难以一次跟完。",
+      "issue": "\"背不出，回去重刷\"落在学习指令上，语气从陪读滑向布置作业，与学生声部的吐槽定位略有偏离。",
       "evidence": {
-        "commentary_quote": "`text_input` → 提取提示 → `llm` → `StrOutputParser` 得到规格字符串",
+        "commentary_quote": "背不出，回去重刷",
         "source_refs": []
       },
-      "suggestion": "拆成两行：先走完提取链三步，再单独讲映射与转换链，每行不超过四个节点。"
-    },
-    {
-      "finding_id": "F010",
-      "target_id": "c01-s05-b03",
-      "unit_type": "beat",
-      "commentary_ref": {
-        "kind": "beat_commentary",
-        "index": 1,
-        "voice": "student"
-      },
-      "related_target_ids": null,
-      "dimension": "consistency",
-      "severity": "major",
-      "issue": "学生吐槽复用了同一 beat 中导师刚用过的“资格考试”比喻，两个声部在互相转述而不是互补。",
-      "evidence": {
-        "commentary_quote": "提示词链什么时候多了资格考试",
-        "source_refs": [
-          {
-            "target_id": "c01-s05-b03",
-            "quote_from": "commentary",
-            "quote": "不是资格考试的四门必修"
-          }
-        ]
-      },
-      "suggestion": "让学生换一个错位场景（如“集齐四个印章才能发车”），或直接吐槽“四项全满”这种误读的后果。"
+      "suggestion": "把结尾改成自嘲式收束（如\"我数到第二条就投降了\"），让读者自己产生回看的冲动。"
     }
   ],
   "scores": {
@@ -599,39 +247,39 @@
         "items_reviewed": 38,
         "dimensions": {
           "accuracy": {
-            "score": 9,
+            "score": 8,
             "blockers": 0,
             "majors": 0,
-            "minors": 2,
-            "rationale": "没有捏造或颠倒事实，引用与代码细节均可对上原文；仅两处评论把自带论断写得像书中主张。"
+            "minors": 4,
+            "rationale": "无捏造或反转，扣分点集中在四处以书本口吻出现的未溯源具体化表述（自加映射、数字、页数、绝对化），读者成本均低。"
           },
           "consistency": {
-            "score": 5,
+            "score": 6,
             "blockers": 0,
-            "majors": 5,
-            "minors": 0,
-            "rationale": "边界澄清式收尾与两行吐槽脚手架大面积重复，核心交接概念被多次重讲，另有一处前置讲解和一处声部内比喻重复。"
+            "majors": 2,
+            "minors": 1,
+            "rationale": "一处对后文\"确定性逻辑\"的前置讲解和一段 short_paragraph 三连是主要扣分，另有接力意象跨拍复用的小摩擦。"
           },
           "simplicity": {
             "score": 9,
             "blockers": 0,
             "majors": 0,
-            "minors": 2,
-            "rationale": "整体口语化、比喻贴近生活、显著降低理解门槛；仅个别术语和一条高密度代码箭头链偏难。"
+            "minors": 0,
+            "rationale": "术语首次出现均配白话内联解释，最难的代码拍以数据流走读拆解，未发现比源文更难懂的解释。"
           },
           "fun": {
             "score": 8,
             "blockers": 0,
             "majors": 0,
-            "minors": 0,
-            "rationale": "钩子具体、兑现及时、吐槽多数落点准；但奖励类型集中于“纠偏式澄清”，多样性受一致性问题（F002/F003）牵连。"
+            "minors": 1,
+            "rationale": "钩子承诺均能在单元内兑现、无空洞悬念，仅一处学生评滑向布置作业的语气。"
           }
         }
       }
     ],
     "global": {
-      "accuracy": 9.0,
-      "consistency": 5.0,
+      "accuracy": 8.0,
+      "consistency": 6.0,
       "simplicity": 9.0,
       "fun": 8.0
     }
@@ -639,40 +287,19 @@
   "summary": {
     "verdict": "revise",
     "items_reviewed": 39,
-    "items_with_findings": 7,
+    "items_with_findings": 6,
     "by_dimension": {
-      "accuracy": {
-        "blocker": 0,
-        "major": 0,
-        "minor": 2
-      },
-      "consistency": {
-        "blocker": 0,
-        "major": 5,
-        "minor": 0
-      },
-      "simplicity": {
-        "blocker": 0,
-        "major": 0,
-        "minor": 3
-      },
-      "fun": {
-        "blocker": 0,
-        "major": 0,
-        "minor": 0
-      }
+      "accuracy": {"blocker": 0, "major": 0, "minor": 4},
+      "consistency": {"blocker": 0, "major": 2, "minor": 1},
+      "simplicity": {"blocker": 0, "major": 0, "minor": 0},
+      "fun": {"blocker": 0, "major": 0, "minor": 1}
     },
-    "by_severity": {
-      "blocker": 0,
-      "major": 5,
-      "minor": 5
-    },
+    "by_severity": {"blocker": 0, "major": 2, "minor": 6},
     "top_issues": [
-      "导师评论约半数以“X 不等于/不保证 Y”式边界澄清收尾，套路重复，读感趋同。",
-      "全部 21 条学生吐槽均为“甲天真断言、乙一句拆台”的两行对话，结构高度雷同。",
-      "“前一步输出成为下一步输入”在 s06/s07 被反复完整重讲，s06 内钩子与评论近乎逐字重复。",
-      "s02-b01 提前讲解了 s05-b03 才给出的“简单任务别上链”使用准则。",
-      "两处评论把自带论断（角色不保证准确、调用/延迟成本）写得像书中主张。"
+      "s02-b05 导师评提前讲解了 b09 才引入的\"确定性逻辑\"机制，应把该点留给源文揭晓处。",
+      "s02-b08 至 b09 连续三条评论同为 short_paragraph 形式，需要换形打断。",
+      "四处小的准确性瑕疵：自加的\"行动=工具调用\"映射、\"全新失忆\"绝对化、\"一晚上几百版\"与\"两页\"等杜撰计量。",
+      "\"接力/交棒\"意象三处复用，建议留给 s06 的计划内类比首发。"
     ]
   },
   "validation": {

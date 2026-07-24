@@ -1,4 +1,0 @@
-interface:
-  display_name: "Book Commentary Old"
-  short_description: "Run the legacy six-stage commentary workflow"
-  default_prompt: "Use $book-commentary-old to turn a segmented professional book into staged, grounded commentary with fast cognitive payoffs and real next-beat bridges."

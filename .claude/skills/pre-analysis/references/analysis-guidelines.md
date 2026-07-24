@@ -35,7 +35,9 @@ Choose one opening angle: `surprising question`, `familiar failure scenario`, `c
 
 Choose one closing angle: `explain in the reader's own words`, `apply to a small scenario`, `distinguish two nearby concepts`, `diagnose a failure`, or `predict what changes next`.
 
-Use one structural voice: `mentor` or `student`. Select one presentation form from `core_question`, `contrast_pair`, `mini_dialogue`, `scene_then_point`, `short_paragraph`, `arrow_chain`, or `bullet_breakdown`. Use arrows only for at least three meaningful nodes across two transitions; use bullets only for genuinely parallel items.
+Use one structural voice: `mentor` or `student`. Select one presentation form from `core_question`, `contrast_pair`, `mini_dialogue`, `scene_then_point`, `short_paragraph`, `arrow_chain`, or `bullet_breakdown`. Use arrows only for three to five meaningful nodes across at least two transitions; content needing more transitions must be planned as several short chains on separate lines, each ending on a nameable intermediate product. Use bullets only for genuinely parallel items.
+
+Write every plan field that the writing pass will surface in reader-facing prose — `promised_payoff`, payoff statements, jobs, anchors, bridge questions — in words a zero-background reader could understand as-is. A compressed label like “迁移判断” fails; “什么时候值得把任务改成链” passes.
 
 Plan one reward:
 
@@ -44,6 +46,13 @@ Plan one reward:
 - Closing function: `payoff`, `mental_model`, `chapter_position`, `bridge`, `memory_anchor`.
 
 State `promised_payoff` as the understanding or capability the unit delivers. Set `payoff_checkpoint_id` to one of the first two eligible direct children that can begin delivering it. Default Chinese limits are 90 characters for an opening and 60 for a question; use only maxima.
+
+## Concept ownership and callbacks
+
+While planning, keep a running chapter registry of payoff statements already assigned to earlier units and beats (this only looks backward, so it never violates the no-future-source rule). Before finalizing any payoff, check the registry:
+
+- The first unit that teaches a concept owns its full explanation.
+- When a later unit — especially a recap, diagram, or takeaway list — returns to an owned concept, its payoff must be typed `connection` and must name (a) a one-line callback to the owning unit and (b) the increment only this unit provides: the diagram's directionality, the ordering of the takeaways, a new linkage between known points. A plan that re-teaches an owned concept in full fails this check.
 
 ## Difficulty rubric
 
@@ -75,13 +84,15 @@ Choose one payoff type:
 - `misconception_correction`
 - `connection`
 
+Scope every payoff to the current beat: the statement must be recoverable from this beat's source plus already-read context alone. When the natural judgment belongs to a later sibling — visible from its title, summary, or function metadata — narrow the current payoff to what this beat establishes and leave that judgment to the owning beat; the owning beat's plan may call back to this one. Check each payoff against the chapter registry in “Concept ownership and callbacks”.
+
 Use the same emotional-target enum as structural plans. Choose function tags from:
 
 - Entry: `misconception`, `stakes`, `mystery`, `conflict`, `personal_relevance`.
 - Explanation: `analogy`, `personification`, `mini_scene`, `counterexample`, `contrast`, `missing_prerequisite`, `author_intent`, `source_trace`, or `null`.
 - Exit: `payoff`, `mental_model`, `chapter_position`, `bridge`, `memory_anchor`.
 
-Record specific claim-strength, causality, intent, and spoiler errors under `forbidden_exaggeration`.
+Record specific claim-strength, causality, intent, and spoiler errors under `forbidden_exaggeration`. Each entry is a silent guardrail for the writing pass, never content to surface: it names one overstatement of a claim actually present in the current beat's source, phrased as “不要把 X 说成/保证/等同于 Y”. An entry that directs content in (“不要忽略 X”, “要提到 X”) or that bans a claim the source never makes fails this check — cut it or reground it. Vary entries by what this beat actually risks; do not stamp the same boundary reminder onto every beat.
 
 ## Loop policy
 
@@ -103,7 +114,7 @@ Difficulty selects mode: `fun_brief` for simple and `fun_explanation` for medium
 
 Select at least one voice per beat. Within each chapter, target at least 70 percent coverage for each voice where honest source-grounded contributions exist. Never pad coverage with a movable joke or redundant explanation. A `close_and_open` plan must include mentor; student never carries a bridge or study question.
 
-For paired voices, define `mentor_job`, `student_job`, and `non_overlap` before planning either delivery. Reject pairs whose landings answer the same question in near-identical words.
+For paired voices, define `mentor_job`, `student_job`, and `non_overlap` before planning either delivery. Give each voice its own `human_anchor`; identical anchors fail. Any analogy, metaphor, or image named in one voice's job belongs to that voice alone — record the ownership in `non_overlap` so the other voice cannot borrow it. Reject pairs whose landings answer the same question in near-identical words.
 
 Choose one strategy per voice. For `fun_explanation`: `concrete_analogy`, `micro_scenario`, `step_by_step_bridge`, `contrast_pair`, `misconception_correction`, or `plain_language_reframe`. For `fun_brief`: `light_observation`, `useful_connection`, `reader_reaction`, `small_surprise`, or `gentle_wit`.
 
@@ -117,3 +128,13 @@ For each voice record:
 - tone tags, must/avoid constraints, and only `max_chars`.
 
 Default Chinese maxima: student simple 65, student medium/hard 90, mentor simple 90, mentor medium 150, mentor hard 200. Shorter passing plans are preferable to padding.
+
+## Chapter plan audit
+
+After drafting every beat plan in a chapter and before emitting the `beat_plans` patch, audit the drafts as one distribution per voice:
+
+- one `presentation_form` holds at most one third of a voice's plans and never runs three beats in a row;
+- one `strategy` holds at most half of a voice's plans;
+- one entry tag and one exit tag each hold at most about half of the chapter's beat plans.
+
+For each plan past a cap, pick the next-best form or strategy that still fits its source and record the source fit in the rationale — rebalancing never licenses a form the beat cannot support. A chapter whose source genuinely forces a cap violation keeps the plan and notes why in `form_rationale`; silent overruns fail the audit. Rerun the concept-ownership registry check across the finished chapter at the same time.

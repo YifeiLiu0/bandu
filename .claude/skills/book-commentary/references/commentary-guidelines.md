@@ -23,6 +23,12 @@ Honor every embedded conflict, difficulty, goal, angle, payoff, emotional target
 
 Return to `$pre-analysis` instead of silently changing a plan. A polished comment that solves a different cognitive problem fails.
 
+## Guardrails stay silent
+
+`forbidden_exaggeration` entries, factual boundaries, and constraint lists calibrate the strength of what you write; they are not material. Prose built by negating a guardrail — turning “不要保证角色提示确保准确” into a “X 不保证/不等于/不会自动 Y” landing — fails unless the source itself makes that correction. Guardrail wording (“认知等价” and the like) is planning vocabulary; it never appears in reader-facing text.
+
+When the commentary adds a reminder or common knowledge beyond the source — even one the plan introduced — attribute it: name what the book says, then mark the addition as the companion's own aside (“书里用 X 来…；实际起作用的是…”). Prose that states an unsourced claim in the book's register fails accuracy.
+
 ## Close before opening
 
 Deliver the current payoff visibly before any bridge. A reader who stops after the comment must still have gained a mechanism, distinction, judgment, action, correction, or connection.
@@ -37,7 +43,7 @@ Reject teaser phrases such as “真正精彩的还在后面” or “事情没�
 - Prefer short spoken sentences and one- or two-sentence paragraphs.
 - Use line breaks to expose structure, not to disguise dense prose.
 - Preserve one dominant planned presentation form.
-- Use `arrow_chain` only for at least three meaningful nodes across two transitions.
+- Use `arrow_chain` only for three to five meaningful nodes across at least two transitions; render longer material as several short chains on separate lines, each closing on a nameable product.
 - Use `bullet_breakdown` only for genuinely parallel source items.
 - Keep a core question concrete and answerable.
 - Make mini-dialogue expose a real collision; never split a definition between speakers.
@@ -54,7 +60,7 @@ Use an analogy only when the plan enables it. Preserve the planned domain and ex
 
 Build the opening from the precise collision in `conflict`. Promise only the understanding supported by `reward_design.promised_payoff` and its early checkpoint. Keep the answer hidden without hiding what the unit is for.
 
-Realize the planned structural voice, opening angle, form, tone, constraints, and analogy. The opening should feel like a story beginning or a live question, not a lesson heading.
+Realize the planned structural voice, opening angle, form, tone, constraints, and analogy. The opening should feel like a story beginning or a live question, not a lesson heading. Plan fields state intent, not copy: re-express `promised_payoff` and conflict wording in zero-background spoken language instead of pasting plan phrases (“迁移判断”) into the hook.
 
 Make the closing question perform the planned exit function:
 
@@ -76,7 +82,7 @@ For each planned voice, silently complete:
 2. `cognitive turn`: move from old belief through tension and information turn to payoff.
 3. `entry and shape`: realize the planned human anchor, reader reaction, strategy, lively turn, voice, and form.
 4. `close before open`: land the voice contribution and current payoff before any allowed mentor bridge.
-5. `remove lecture scaffold`: hide taxonomy, labels, definitions, recaps, and teacherly prompts.
+5. `remove lecture scaffold`: hide taxonomy, labels, definitions, recaps, and teacherly prompts; translate any plan-field phrase into zero-background words instead of quoting it.
 6. `spoken compression`: keep one source-bound device, split overloaded sentences, remove duplication, and stop on the landing.
 
 Reject a draft when a later pass makes the payoff harder to recover.
@@ -105,13 +111,16 @@ When both voices appear:
 - student makes the source-specific mismatch or consequence easier to recognize and remember;
 - neither paraphrases the other;
 - each realizes its own contribution, human anchor, and landing;
+- neither voice reuses an analogy, metaphor, or image the other voice already used in this beat or owns through its planned job — an unplanned analogy in either voice fails acceptance test 10;
 - the final pair matches `pairing_design.non_overlap`.
 
 Reject a student comment that is merely a shorter mentor comment with slang.
 
 ## Chapter-level variety
 
-Keep a private ledger per voice with presentation form, line count, sentence shape, device, analogy domain, opening pattern, roast target, landing, and core claim. Inspect the previous three to five same-voice entries and the current pair.
+Keep a private ledger per voice with presentation form, line count, sentence shape, device, analogy domain, opening pattern, roast target, landing, and core claim. Inspect the previous three to five same-voice entries and the current pair. Core claims and landing types are chapter-wide registries, not a rolling window: every delivered claim stays on the ledger for the whole chapter.
+
+When the current payoff matches a claim already on the registry, write a one-line callback to where it landed and spend the rest on this unit's own increment; if the plan demands a full re-teach, that is a plan defect — return to `$pre-analysis`.
 
 Re-audit when:
 
@@ -121,7 +130,12 @@ Re-audit when:
 - student comments reuse the same first-person scaffold;
 - either voice covers under 70 percent of chapter beats.
 
-Treat style thresholds as review triggers. Preserve source fit instead of rotating forms or jokes mechanically.
+Two hard caps override source fit:
+
+- boundary-clarification landings (“X 不等于/不保证/不会自动 Y”) may close at most one third of a chapter's mentor comments; past the cap, land on a scene, a consequence, or the positive mechanism instead;
+- when honoring the plans as written would push one presentation form past one third of a voice's chapter output or past three consecutive uses, treat the monotony as a plan defect and return to `$pre-analysis` rather than silently complying.
+
+Treat the other style thresholds as review triggers. Preserve source fit instead of rotating forms or jokes mechanically.
 
 ## Failure patterns
 
@@ -141,7 +155,7 @@ Reject prose that:
 
 Run all applicable tests before setting self-check fields:
 
-1. Grounding: every claim and device maps to source or plan.
+1. Grounding: every claim and device maps to source or plan; a claim grounded only in the plan is still an addition and carries the companion-aside attribution from “Guardrails stay silent”.
 2. Analysis alignment: prose cashes out the exact conflict/difficulty and contribution.
 3. Beginner clarity: a zero-background reader can recover the relationship.
 4. Human entry: the planned observable anchor or reaction becomes visible.

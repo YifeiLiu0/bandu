@@ -30,7 +30,7 @@ Validate before writing:
 python3 .claude/skills/book-commentary/scripts/validate_commentary.py <pre-analysis.json>
 ```
 
-Stop on validation errors. Do not repair, complete, or reinterpret an invalid upstream analysis. Return to `$pre-analysis` when the conflict, difficulty, payoff, loop, voice set, form, analogy, or length budget prevents passing prose.
+Stop on validation errors. Do not repair, complete, or reinterpret an invalid upstream analysis. Return to `$pre-analysis` when the conflict, difficulty, payoff, loop, voice set, form, analogy, or length budget prevents passing prose — including when the plans, executed faithfully, would repeat one presentation form or landing type past the chapter-level caps, or would re-teach a concept an earlier unit already delivered.
 
 ## Output location and invariants
 
@@ -97,7 +97,7 @@ Treat `difficulty` and beat `plan` as a binding brief. Do not start from the sou
 5. Hide the planning scaffold. Replace labels and abstractions with actors, objects, actions, causal links, distinctions, and consequences.
 6. Compress into spoken language. Use at most one planned comic/narrative device or analogy; stop when the payoff or grounded bridge lands.
 
-Keep a private chapter-level style ledger while writing. Track recent voice, form, opening pattern, device, analogy domain, roast target, landing, and core claim. Re-audit repeated forms, adjacent open loops, weak voice differentiation, and chapter voice coverage; never emit the ledger.
+Keep a private chapter-level style ledger while writing. Track recent voice, form, opening pattern, device, analogy domain, roast target, landing, and core claim; keep delivered core claims and landing types on the ledger for the whole chapter, not a rolling window. Re-audit repeated forms, adjacent open loops, weak voice differentiation, and chapter voice coverage; enforce the chapter caps on boundary-clarification landings and per-form share from the guidelines; never emit the ledger.
 
 - For `student`, emit only `comment_type: "roast"`. Roast a source-specific situation, system behavior, inflated promise, or harmless first impulse—never the reader. Reject movable complaints, miniature lessons, study questions, and recurring first-person scaffolds.
 - For `mentor`, emit only `comment_type: "fun_commentary"`. Bridge the missing reasoning step in plain language and land on the exact source concept. Avoid taxonomy-first or documentation-style prose.

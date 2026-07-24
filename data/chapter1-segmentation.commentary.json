@@ -24,13 +24,13 @@
       "commentary": {
         "opening_hook": {
           "voice": "mentor",
-          "presentation_form": "arrow_chain",
-          "text": "当前材料只有第一章，先别急着猜全书。单提示的局限 → 链式分解 → 代码落地与迁移判断：这条临时路线会把“拆成多步”推进到可检查的工作流。"
+          "presentation_form": "core_question",
+          "text": "模型一年比一年聪明，可你交给它一个复杂任务，它还是会漏掉一半要求。问题出在哪？这本书的答案是：缺的不是更强的模型，而是组织工作的方式。"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "只看这一章，你会怎样复述它从“单提示失稳”走向“链式可控”的路线？",
-          "answerability": "within_unit"
+          "text": "第一个模式从最朴素的动作开始：把大任务拆成一串小提示词——它凭什么更可靠？",
+          "answerability": "forward_bridge"
         }
       }
     },
@@ -41,11 +41,11 @@
         "opening_hook": {
           "voice": "mentor",
           "presentation_form": "scene_then_point",
-          "text": "一个提示塞进目标、格式、工具和十几条约束，模型却偏偏漏掉最要命的一条。复杂任务里，“一次说完”省的是调用，丢的可能是可检查性；本章要找出该在何处拆开、交接和控错。"
+          "text": "让模型分析一份市场报告：总结发现、提取数据、再写封邮件。结果总结很漂亮，数据却没提出来，邮件也不像样。要求明明写全了，它为什么只做对一半？"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "如果一条链仍然难调试，你会先查任务有没有拆开，还是步骤间有没有把结果交清楚？",
+          "text": "读完这一章，用自己的话说说：把一条大提示词拆成一串小的，到底改变了什么？",
           "answerability": "within_unit"
         }
       }
@@ -57,11 +57,11 @@
         "opening_hook": {
           "voice": "mentor",
           "presentation_form": "contrast_pair",
-          "text": "单提示：步骤少，却把所有约束挤进一次猜测。\n提示词链：步骤多，却能逐段检查角色、依赖和中间结果。真正决定可靠性的，不是调用次数，而是交接是否清楚。"
+          "text": "同一个任务，两种交法：一条面面俱到的大提示词，或一串每次只做一件事的小提示词。直觉说前者信息全，实际更稳的是后者——差别出在哪？"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "某一步输出很漂亮，下一步却做错了；沿“分解—依赖—控制—交接”，你先查哪一环？",
+          "text": "如果链的最后一步拿到一段含糊的输入就写崩了，你会先检查哪一环？",
           "answerability": "within_unit"
         }
       }
@@ -73,14 +73,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "不是“同一个问题多问几遍”，而是：\n大任务：职责混在一起，出错时无处下手。\n提示词链：按职责拆成子问题，让每一步都能单独理解、调试和优化，再把结果依次交下去。"
+          "presentation_form": "short_paragraph",
+          "text": "提示词链、管道模式，两个名字一个意思：别让模型一口吞下大问题，切成一串小口，一口一口喂。算法课管这叫分而治之——老策略，新用途。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "“把同一段提示复制三次，这下有提示词链了。”\n“职责一次没换，只是让同一个问题排了三遍队。”"
+          "presentation_form": "short_paragraph",
+          "text": "说是\"强大范式\"，动作其实是把大题拆成小题逐问作答——这套路我考试就会，原来还能起这么响的名字。"
         }
       ]
     },
@@ -92,13 +92,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "arrow_chain",
-          "text": "前一步产出 → 变成后一步可用的输入 → 后一步据此继续加工。API、数据库或其他工具可以插在节点间完成外部操作；模型负责提出或处理信息，工具负责实际查询与执行，不能混成一个黑箱。"
+          "text": "为什么非要把上一步的输出递给下一步？因为递过去的不是一段文字，是已经确定的中间结论。\n上一步的输出 → 变成下一步的上下文 → 可选范围随之收窄 → 答案逐步逼近。\n每一步都站在前一步的肩膀上，这就是\"依赖链\"里\"依赖\"二字的分量。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：三个调用都按顺序上场了，肯定算一条链。\n乙：前一棒没人接，只有出场顺序，没有接力。"
+          "text": "\"你不就是个答题的？\"\"在链上不是。我接过上一棒的笔记，还能顺手查库调接口——这工位带外网。\""
         }
       ]
     },
@@ -109,14 +109,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "固定提示词链：预先安排多步推理与交接。\n智能体工作流：还要根据环境反馈选择工具、更新状态、决定下一步。\n前者能承载后者的分步工作，却不会因串了几个提示就自动获得自主性；“像人类思维”也不等于认知等价。"
-        },
-        {
-          "voice": "student",
-          "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "“两个提示串好了，智能体诞生。”\n“排好日程不等于会看现场改计划，更不等于会自己行动。”"
+          "presentation_form": "core_question",
+          "text": "\"智能体\"听着玄，它自主规划、决策、行动的底层是什么？拆开看：规划，是把任务排成提示词序列；决策，是根据上一步输出选下一步；行动，是链上那次工具调用。大词的每个动作，都能还原成链上的一步——所以作者说，链是智能体的地基。"
         }
       ]
     },
@@ -128,13 +122,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "contrast_pair",
-          "text": "不是所有“大提示失灵”都叫写得不够细：\n漏掉要求，是指令问题；忘了开头，是上下文漂移；信息塞不下，是窗口问题；说出假话，是事实性问题。早期错误还会继续放大——拆成链也不会自动消毒。"
+          "text": "五种翻车方式，两两分清：漏做要求的是\"指令忽略\"，越写越跑题的是\"上下文偏离\"；前错带后错叫\"错误传播\"，负荷太大开始编叫\"幻觉\"，再加一条——东西塞太多，窗口装不下。最阴险的是常常只坏一半：总结漂亮，数据和邮件悄悄烂掉。那同一个任务，拆成三步后长什么样？"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：它又漏了提取数据，那就在末尾再写一句“请务必”。\n乙：要求都挤成一团了，再加重语气只是给失控多按一次感叹号。"
+          "presentation_form": "scene_then_point",
+          "text": "\"帮我分析这份报告，总结发现，提数据，找趋势，顺便写封邮件给市场部。\"——这条提示词跟甲方需求单一个味儿。答应得越痛快，忘得越干净，人和模型都一样。"
         }
       ]
     },
@@ -143,16 +137,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "市场报告 → 只保留关键发现的摘要 → 带数据支撑的趋势 → 面向营销团队的邮件。每一步都改变信息形态，也把更合适、可检查的输入交给下一步。"
-        },
-        {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：边读整份报告，边找趋势，边写邮件，一步完成。\n乙：一个人三份活，最好还要求零漏项。"
+          "presentation_form": "short_paragraph",
+          "text": "高级技术落了地，就是给模型排班：一班只总结，一班只找趋势，一班只写邮件。每班一件事，还都拿着上一班验过的活——想摸鱼都没处摸。"
         }
       ]
     },
@@ -163,14 +151,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "core_question",
-          "text": "角色分工什么时候真有用？不是名字够响，而是角色绑定了具体操作与产物：市场分析员只找趋势，文档撰写者只组织文本。步骤因此更小、歧义更少，也更容易检查；角色本身不保证准确。"
+          "presentation_form": "short_paragraph",
+          "text": "为什么挂个\"市场分析师\"的头衔就更准？这和拆步骤是同一招：再收窄一次范围。头衔在告诉模型——这一步只用这类知识、这种口吻，别的先不管。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：你是一位宇宙级专家，请保证准确。\n乙：职位写满天花板，具体要交什么还是空白。"
+          "text": "\"你现在是市场分析师。\"\"收到，只看数据，不碰邮件。\"——换个工牌，立刻进入角色，比人类好管多了。"
         }
       ]
     },
@@ -181,14 +169,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "JSON 不是“可靠”贴纸，而是交接契约：\n可解析：下一步能找到 `trends` 数组，并逐项读取 `trend_name` 和 `supporting_data`。\n内容正确：这些字段真实、完整。\n前者可以按结构校验，后者仍要做语义与事实验证。"
+          "presentation_form": "scene_then_point",
+          "text": "口头交接：\"趋势嘛，都挺火的。\"表格交接：trend_name 一栏写趋势名，supporting_data 一栏写支撑数据。JSON 就是后者——花括号里的键是交接单上印死的栏目，值才是这一班填的内容。下一步照栏目取数，不用猜前任的话。链越长，这张交接单越是命根子。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：外面套上大括号，结果就可信了。\n乙：字段站得整整齐齐，里面照样能一本正经地填错。"
+          "presentation_form": "scene_then_point",
+          "text": "上一棒交来一句\"AI 和环保都挺火的\"，下一棒当场愣住：火到什么程度？数据呢？塞进模板哪一格？你让模型\"自由发挥\"的每个中间输出，都是给下一步埋的雷。"
         }
       ]
     },
@@ -197,14 +185,14 @@
       "unit_type": "section",
       "commentary": {
         "opening_hook": {
-          "voice": "mentor",
+          "voice": "student",
           "presentation_form": "bullet_breakdown",
-          "text": "- 要变换或检索信息：安排顺序或并行\n- 要验证结果：加入循环\n- 要调用工具、保存状态或跨模态：设计专门交接\n真实任务不是都套一条直线；先看它需要什么动作。"
+          "text": "你手头的活儿，多半能在这七把椅子里找到座位：\n- 文档、问答、抽数据、写长文\n- 聊天记忆、写代码、读图\n别当展览逛——对号入座地读。"
         },
         "closing_question": {
-          "voice": "mentor",
-          "text": "一份报告要先检索资料、核对事实再成稿，你会让哪些步骤顺序执行，哪里加验证？",
-          "answerability": "within_unit"
+          "voice": "student",
+          "text": "先挑一把椅子：你最近哪件事最像\"文档进、报告出\"？带着它往下读。",
+          "answerability": "reflection"
         }
       }
     },
@@ -215,8 +203,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "适合上链：任务确有多个可分阶段、可交接的操作。\n不必上链：简单任务一次就能清楚完成。提示词链用途广，不等于额外调用、延迟和编排成本都是免费的。"
+          "presentation_form": "short_paragraph",
+          "text": "下面七个用例别当展品参观。正确读法是拿手头的任务来对号：每看一个就问一句——我哪件活儿像这个？读完你会带走一张自己的对号清单。"
         }
       ]
     },
@@ -225,10 +213,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "原始文档 → 清理与摘要 → 人名、日期、地点等实体 → 用实体查询知识库 → 汇入检索结果的报告。实体不是终点，而是连接文本处理与外部检索的键。"
+          "voice": "student",
+          "comment_type": "roast",
+          "presentation_form": "short_paragraph",
+          "text": "\"AI 研究助手\"卸了妆：抽文本、做总结、挑出名字日期这类关键信息、拿去查库、拼成报告。五行清单，骨架全在这了。"
         }
       ]
     },
@@ -240,13 +228,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "arrow_chain",
-          "text": "原问题 → 拆成“股灾原因”和“政策回应” → 分别定向检索证据 → 按原问题重新综合。只拆不合，会留下两堆材料，而不是一个回答。"
+          "text": "这条链最聪明的是第一步——它不查资料，只把问题拆开。\n一个大问题 → 两个子问题 → 两份定向资料 → 一个有骨架的答案。\n先定靶，再放箭。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：原因和政策回应，我分别查完了。\n乙：用户：很好，所以两者怎么关联？"
+          "presentation_form": "short_paragraph",
+          "text": "写论文不列提纲直接开写，最后都得重写——模型也一样：先拆出小标题，再分头查资料，最后照提纲成文。"
         }
       ]
     },
@@ -258,13 +246,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "contrast_pair",
-          "text": "能独立做的：多篇文章同时抽取关键信息。\n有依赖的：抽取结果汇合后，依次综合成草稿，再审查并修订。\n所以链描述的是产物依赖，不是所有节点排成单线；审查还会评价并改变已有产物。"
+          "text": "分辨并行还是排队，就问一句：这步吃不吃上一步的输出？\n逐篇文章提取信息——谁也不等谁，一起跑；\n整合、综合成稿、审查——后一步全靠前一步的产出，必须排队。\n不吃输出的并行抢时间，吃的串行保顺序，真实系统是两者拼着用。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：提示词链只能从头到尾排一队。\n乙：多篇文章各开窗口，汇总后才进综合和审核通道。"
+          "presentation_form": "scene_then_point",
+          "text": "做一桌饭：洗菜切菜全家一起上，没人干等最后一根葱；可菜没下锅，谁也尝不了咸淡。备料并行，出锅按序——研究智能体的先提取后综合，就是这么回事。"
         }
       ]
     },
@@ -275,14 +263,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "尝试抽取 name、address、amount → 检查字段是否齐全、格式是否合规 → 把缺失或畸形项写进新提示 → 再校验，合格才退出。校验既是质量门，也是控制重试的信号；格式通过仍不等于内容真实。"
+          "presentation_form": "scene_then_point",
+          "text": "发票链跑一轮：模型抽字段，\"处理\"那行代码来验收——金额栏空着，打回；系统生成一条带失败记录的补抽提示词，只盯金额，再验，过了才放行。注意质检员不是模型自己，是写死规则的处理逻辑。清单里那两行\"处理\"，才是这条链的灵魂。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：字段都在，抽取成功。\n乙：`amount` 里住着一段解释文字。位置满了，不代表数据合格。"
+          "text": "\"金额栏空着呢，重抽。\"\"收到，这次只盯金额。\"——AI 也有被打回重做的一天，退单上还附着差评明细。好在返工单越具体，补救越快。"
         }
       ]
     },
@@ -291,16 +279,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "语言模型擅长：从 PDF 图像提取文本，把“一千零五十”规范成 1050，并判断需要什么运算。\n计算器擅长：对规范化数字做精确算术。\n链要负责：把数字送进工具，再把结果回填到原字段。职责分对了仍要检查 OCR 和规范化是否读错。"
-        },
-        {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：数字都识别出来了，顺手让模型心算吧。\n乙：财务表里差一个小数点，通常不算“差不多”。"
+          "presentation_form": "short_paragraph",
+          "text": "能把\"一千零五十\"认成 1050 的天才，算账时默默掏出了计算器。别笑——认字它来，算数外包，各干擅长的活，这正是链的用法。"
         }
       ]
     },
@@ -309,16 +291,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "兴趣方向 → 候选主题 → 选定主题与大纲 → 按大纲分节起草 → 全稿修订。每阶段先产出可检查的承诺，再进入更昂贵的写作；流程控制方向，不替代创造力。"
-        },
-        {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：先一口气写完，再看方向对不对。\n乙：装修结束后才决定户型，确实很自由。"
+          "text": "\"构思、大纲、起草、修订——这不就是我写稿吗？\"区别在第 4 步：它每写一节都把上一节递回去。你上次让 AI 续写时，递了吗？"
         }
       ]
     },
@@ -329,14 +305,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "聊天记录：原始对话越积越长，相关与无关信息混在一起。\n对话状态：从每轮提取意图和关键实体，更新后只把当前需要的信息放进新提示。\n提示词链能完成“提取—更新—使用”的基础传递；完整状态管理还要规定选择、更新和生命周期。"
+          "presentation_form": "arrow_chain",
+          "text": "模型不记得上一轮——所谓记忆，是场外有本会议纪要。\n本轮发言 → 记下\"对方想干嘛、提到哪些关键人事物\" → 下一轮连纪要一起递回去。\n\"意图\"就是想干嘛，\"实体\"就是关键人事物；纪要越攒越厚，对话就显得越\"懂你\"。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：整段聊天记录全塞进下一轮，我都记得。\n乙：记住每句话，却没挑出现在要用的实体——这是存档，不是会用。"
+          "presentation_form": "short_paragraph",
+          "text": "你以为它是记性好的老朋友，其实是每轮开场先读小抄的新员工——小抄还是链替它整理的。每一轮它都全新失忆，连贯全靠场外补作业。"
         }
       ]
     },
@@ -347,14 +323,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "需求 → 伪代码或大纲 → 初版代码 → 错误分析 → 修订 → 文档与测试。模型生成产物，静态分析或测试独立验收；若质量门失败，就回到修订。可靠性来自可检查产物和外部验证，不是“再生成几轮”。"
+          "presentation_form": "short_paragraph",
+          "text": "这条链真正的护栏藏在收尾那句：模型调用之间可以插\"确定性逻辑\"。翻译过来，就是每次都给同样答案的普通代码。模型负责发挥，代码站在两次发挥之间把关——验输出、整数据、决定走哪条分支。可靠性不靠模型超常发挥，靠这层从不即兴的关卡。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：模型已经检查过自己，代码没问题。\n乙：自己出题、自己判卷、自己宣布满分，流程相当闭环。"
+          "presentation_form": "short_paragraph",
+          "text": "想清楚、写草稿、自己找茬、按茬重写、最后才补文档和测试——这五步跟程序员本人的日常神同步。区别是链把\"找茬\"写进了流程，不靠自觉。"
         }
       ]
     },
@@ -366,13 +342,7 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "arrow_chain",
-          "text": "图中文字 → 对应的图中标签 → 标签在表格中的解释 → 综合输出。多模态的关键不是把材料一次塞齐，而是显式保存这些对应关系；标签一旦错配，后面的解释就会跟着串行跑偏。"
-        },
-        {
-          "voice": "student",
-          "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：图片、文字、标签、表格，一眼自动对齐。\n乙：于是标签 A 接上表格 B 行，答案自信地解释了隔壁。"
+          "text": "先把那张图在脑子里搭起来：一张带文字的图片，文字上圈着标签，旁边一张表解释每个标签。\n三步剥开它：读出图中文字 → 把文字对上标签 → 拿表格解释标签，得出答案。\n模态变了，套路没变：还是拆开、按序、传下去。"
         }
       ]
     },
@@ -383,11 +353,11 @@
         "opening_hook": {
           "voice": "mentor",
           "presentation_form": "arrow_chain",
-          "text": "概念懂了，代码却可能卡在最朴素的交接：输入 → 第一个提示与模型 → 字符串解析 → 变量映射 → 第二个提示与模型。沿这条数据流，就能看清谁把什么交给谁。"
+          "text": "概念都懂了，代码要几行？这一节给答案：一条真能跑的链——\n原始文本 → 提取规格 → 转成 JSON。\n装两个包、配一把钥匙，几十行就通。"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "若第二个提示拿不到第一次的回答，你会沿这条链检查哪个交接点？",
+          "text": "跑通之后，用自己的话说说：第一步的输出是怎么钻进第二步的提示词里的？",
           "answerability": "within_unit"
         }
       }
@@ -399,14 +369,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "提示词链是设计模式：直接写顺序函数调用也能实现。\nLangChain、LangGraph 等是编排工具：复杂度上升时，帮忙管理控制流、状态和组件。\n本例只看一条线性管道——先提取非结构化文本，再把结果转换成结构化格式。"
+          "presentation_form": "core_question",
+          "text": "到底要不要框架？看路程：直线小链，脚本里顺序调用就够；等链长出状态、分支、循环，才值得请框架来管控制流。今天报的四个名字先当地名记住，本节只用 LangChain，还只用它最直的那一段。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：不会 LangChain，就不会提示词链。\n乙：这是把扳手品牌背熟了，再宣布自己懂机械原理。"
+          "text": "\"LangChain、LangGraph、Crew AI、ADK……四个都要学？\"\"人家只是报个菜名，今天就点一道，还只吃直线部分。\"刚想关页面的手，放下了。"
         }
       ]
     },
@@ -417,8 +387,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "core_question",
-          "text": "运行前要配哪三样？先装依赖；再选与模型提供商对应的适配包；最后配置同一提供商的 API 凭据。`pip install` 只解决第一项。换提供商时，包、模型类和凭据要一起换，不能只改一个名字。"
+          "presentation_form": "short_paragraph",
+          "text": "开跑前就两件事：pip 装积木，API 密钥当通行证；换供应商就是换个包、换本证。装好了——两步链的代码到底长什么样？"
         }
       ]
     },
@@ -430,13 +400,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "arrow_chain",
-          "text": "`text_input` → 提取提示 → `llm` → `StrOutputParser` 得到规格字符串 → `{\"specifications\": extraction_chain}` 把它映射给第二个模板 → 转换提示 → `llm` → 最终字符串。竖线表示组件组合；解析器只转成可用字符串，不负责严格验证 JSON。"
+          "text": "五十行代码，新知识只有两行。先看数据流：\n输入文本 → 提取链（模板 | 模型 | 解析器）→ 转换提示词 → JSON 输出。\n竖线是水管：左边的输出流进右边；模板管话术，模型管生成，解析器把输出拧成干净字符串。\n再看 {\"specifications\": extraction_chain}：先跑提取链，结果填进这个变量。第一节说的\"输出变输入\"，本人就长这样。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：竖线都连上了，数据自然知道该去哪。\n乙：`specifications` 名字一对不上，第二步收到的就是迷路通知。"
+          "presentation_form": "scene_then_point",
+          "text": "文档说 LCEL 能\"优雅地链接\"提示词和模型。点开一看：一根竖线，一个字典。不过讲真——能把整章的机制压进两个符号，确实算优雅。"
         }
       ]
     },
@@ -447,11 +417,11 @@
         "opening_hook": {
           "voice": "mentor",
           "presentation_form": "contrast_pair",
-          "text": "提示工程：琢磨眼前这句话怎么写。\n上下文工程：连同系统指令、检索资料、工具输出、身份、历史和环境一起设计。措辞仍重要，但它只是模型所见信息环境的一层。"
+          "text": "提示词一个字一个字地抠，输出还是平庸——问题可能不在措辞。这一节把镜头拉远：一边是打磨那句话，一边是给模型搭一整个信息环境。决定质量的，更多是后者。"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "只改用户措辞，与调整系统指令、工具结果和历史信息，分别属于哪种工程？",
+          "text": "现在分得清了吗：提示工程管什么，上下文工程又多管了哪几层？",
           "answerability": "within_unit"
         }
       }
@@ -464,7 +434,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "core_question",
-          "text": "“完整信息环境”扩大到哪里？它指模型生成前被设计、构建并交付的整套可见信息，而不只是一句用户询问。图把这个范围画出来，但不能证明所有任务里上下文都比模型架构更重要；那是需要限定的比较。"
+          "text": "模型没换，还有什么能大幅改变输出质量？这节的答案：它开口前看到的一切。上下文工程，就是在生成之前把模型该看的材料系统地备齐送到。注意作者的断言是\"更多取决于\"上下文而非架构——是相对，不是绝对。那么除了那句提示词，还能往模型的视野里装什么？"
+        },
+        {
+          "voice": "student",
+          "comment_type": "roast",
+          "presentation_form": "mini_dialogue",
+          "text": "\"这模型不行，换！\"\"需求文档发它了吗？日程表给它看了吗？\"\"……没。\"翻车先查喂料，再骂脑子。"
         }
       ]
     },
@@ -476,13 +452,13 @@
           "voice": "mentor",
           "comment_type": "fun_commentary",
           "presentation_form": "contrast_pair",
-          "text": "提示工程：优化当前问题怎么表达。\n上下文工程：决定模型作答时能看到什么——系统指令约束行为，检索文档补事实，工具输出带来外部结果，身份与历史提供个性化，环境状态维持当下条件。\n信息要按当前任务选择；全塞进去只是更长，不一定更相关。"
+          "text": "提示工程管一层：你打的那句话。上下文工程管四层：系统提示定规矩（\"你是技术作家\"）、检索文档补知识（项目规格）、工具输出带实时信息（查日历）、隐式数据管\"你是谁\"（与收件人的关系、聊过的记录）。同一封邮件任务，只有第一层的模型客客气气，四层齐的模型像个老同事。这是演进，不是取代。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：把系统提示、会议笔记、聊天历史全粘进去，工程完成。\n乙：这叫上下文仓库；库存很多，选货逻辑为零。"
+          "presentation_form": "contrast_pair",
+          "text": "提示工程：帮你改一句话的。上下文工程：把你的日历、聊天记录、会议笔记连锅端进模型视野的。一个改措辞，一个搬全家。"
         }
       ]
     },
@@ -493,14 +469,14 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "自动优化器能做：用固定样本生成响应，按预设指标评分，调整提示或系统指令，再复评比较。\n它不能包办：检索、工具、历史与状态的保存和供应。\n所以自动优化能规模化改进部分上下文输入；从无状态聊天走向情境感知系统，还要完整机制配合。"
+          "presentation_form": "scene_then_point",
+          "text": "看优化器上班：接过一批样本提示词，按预设指标给每个响应打分，分数不行就动手改写提示和系统指令，改完下一轮接着评。\"建立反馈循环持续改进上下文\"这句话，落地就是这套流程在连轴转——转循环的是机器，不是深夜改稿的你。"
         },
         {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：点一下优化，聊天机器人就成熟了。\n乙：提示变了，历史、检索和状态仍然集体缺席。"
+          "presentation_form": "scene_then_point",
+          "text": "深夜，你逐字斟酌提示词，改一版试一回；同一时刻，优化器按指标一晚上评完几百版。手感值钱，循环更值钱——改提示词这门手艺，也开始被机器卷了。"
         }
       ]
     },
@@ -509,13 +485,13 @@
       "unit_type": "section",
       "commentary": {
         "opening_hook": {
-          "voice": "mentor",
-          "presentation_form": "bullet_breakdown",
-          "text": "- 问题：单提示装不下多阶段任务\n- 方案：拆成可交接、可检查的步骤\n- 经验法则：工具、状态或多步推理一出现，就考虑用链；简单任务则别急着加编排。"
+          "voice": "student",
+          "presentation_form": "mini_dialogue",
+          "text": "\"学完一章了，一句话说说什么时候该用链？\"\"呃……复杂的时候？\"——答不利索很正常。这节就三张卡：问题、方案、时机，专治这种卡壳。"
         },
         "closing_question": {
-          "voice": "mentor",
-          "text": "只做一句话改写，和“检索—核验—成稿”相比，哪个值得上链，为什么？",
+          "voice": "student",
+          "text": "三张卡合上，你能不看书把\"什么时候用链\"说成一句话吗？",
           "answerability": "within_unit"
         }
       }
@@ -525,16 +501,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "偶发措辞问题：改写后可能消失。\n单提示过载：持续漏指令、丢上下文或编造信息，尤其当多个约束和顺序推理互相争抢时。出现后一组症状，才值得考虑拆链。"
-        },
-        {
           "voice": "student",
           "comment_type": "roast",
           "presentation_form": "mini_dialogue",
-          "text": "甲：它又漏要求了，再加一句“不要遗漏”。\n乙：过载提示喜提一条新的待遗漏指令。"
+          "text": "自查一下：\"单提示词差在哪？\"是不是数到第二条就卡壳。这段不是废话，是第一节两页内容的闪卡——背不出，回去重刷。"
         }
       ]
     },
@@ -545,8 +515,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "复杂任务 → 按职责拆成聚焦子任务 → 明确传递每步产物 → 组合最终结果。控制力来自职责缩小、交接清楚；更多调用只是成本，简单任务未必值得。"
+          "presentation_form": "short_paragraph",
+          "text": "这段藏着全章目录：分解、聚焦、传递、集成——四个动词各领一段旧账：怎么拆、每步一件事、输出变输入、外接工具。细节想不起来时，顺着动词找回去。"
         }
       ]
     },
@@ -555,16 +525,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "core_question",
-          "text": "怎么读这条经验法则？多阶段、工具交接、状态、多步推理是“或”，不是资格考试的四门必修。任一信号出现，就评估是否上链；若一次调用已经清楚完成，别机械拆。"
-        },
-        {
           "voice": "student",
           "comment_type": "roast",
-          "presentation_form": "mini_dialogue",
-          "text": "甲：多阶段、工具、状态、推理必须四项全满。\n乙：提示词链什么时候多了资格考试？"
+          "presentation_form": "contrast_pair",
+          "text": "正经版四条：太复杂、多阶段、要工具、要状态。人话版一条：一口吃不下就分口。四条全是同一个症状的不同说法。"
         }
       ]
     },
@@ -573,13 +537,13 @@
       "unit_type": "section",
       "commentary": {
         "opening_hook": {
-          "voice": "mentor",
-          "presentation_form": "core_question",
-          "text": "图里最值得看的，是三个框，还是两根箭头？答案藏在数据怎么走：前一个节点的输出，必须成为后一个节点的输入；这才是图能证明的链式关系。"
+          "voice": "student",
+          "presentation_form": "short_paragraph",
+          "text": "两百多行讲完的机制，这里一张图画完。别急着翻页——考验来了：看图不看字，你能把整章讲出来吗？"
         },
         "closing_question": {
-          "voice": "mentor",
-          "text": "不说“有多个智能体”，你会怎样用“输出”和“输入”复述这张图？",
+          "voice": "student",
+          "text": "遮住图注，只看箭头：你能给别人讲清那根箭头是什么吗？",
           "answerability": "within_unit"
         }
       }
@@ -589,10 +553,10 @@
       "unit_type": "beat",
       "commentaries": [
         {
-          "voice": "mentor",
-          "comment_type": "fun_commentary",
-          "presentation_form": "core_question",
-          "text": "箭头表达什么？前一节点的输出，成为后一节点的输入。图的核心是这条有方向的交接，不是方框或 agent 的数量；它也没有画出反馈、并行或自治。"
+          "voice": "student",
+          "comment_type": "roast",
+          "presentation_form": "scene_then_point",
+          "text": "这是条接力赛道：一排选手是智能体，接力棒是输出，发令枪是你的第一条提示词。看图别数格子，盯交棒的手——那根箭头就是整章。"
         }
       ]
     },
@@ -601,14 +565,14 @@
       "unit_type": "section",
       "commentary": {
         "opening_hook": {
-          "voice": "student",
+          "voice": "mentor",
           "presentation_form": "bullet_breakdown",
-          "text": "概念、例子、代码看了一圈，脑中却只剩“多调用几次”？先抓四个支点：\n- 任务怎么拆\n- 结果怎么传\n- 可靠从哪来\n- 工具帮什么\n它们能把整章重新撑起来。"
+          "text": "合上书，四条要点还能背出几条？这节正好四问四答：\n- 它叫什么、怎么传\n- 为什么好、拿什么建\n缺哪条，补哪节。"
         },
         "closing_question": {
-          "voice": "student",
-          "text": "不用翻回前文，你能用“拆、传、稳、编排”一分钟复述提示词链吗？",
-          "answerability": "within_unit"
+          "voice": "mentor",
+          "text": "四条里哪一条你还讲不顺？记下它，那就是你要重读的小节。",
+          "answerability": "reflection"
         }
       }
     },
@@ -619,8 +583,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "arrow_chain",
-          "text": "复杂任务 → 拆成聚焦步骤 → 前一步输出交给下一步 → 过程更可管、可查 → 框架协助编排。框架支持这条因果线，却不定义提示词链。"
+          "presentation_form": "bullet_breakdown",
+          "text": "四条要点即四问四答：\n- 是什么——拆成小步的管道\n- 怎么传——上步输出当下步输入\n- 为什么——更可靠好管\n- 用什么——LangChain 等框架\n卡在哪问，回哪节。"
         }
       ]
     },
@@ -631,12 +595,12 @@
         "opening_hook": {
           "voice": "mentor",
           "presentation_form": "short_paragraph",
-          "text": "如果最后只记住“多调几次模型”，前面的分解、交接、工具和状态就都掉线了。提示词链的系统价值，不在次数，而在把复杂问题变成可控操作，并让上下文沿步骤流动。"
+          "text": "最后这段话把调子突然抬高：一个\"拆任务的技巧\"，被说成\"至关重要\"。不是客套——作者在给整本书打地基，这一章就是承重墙。"
         },
         "closing_question": {
           "voice": "mentor",
-          "text": "要做一个会查资料、记进度再回答的智能体，你会怎样用链把这三件事接起来？",
-          "answerability": "within_unit"
+          "text": "如果更复杂的系统都建在这层地基上，你猜它们还会往链上加什么？",
+          "answerability": "forward_bridge"
         }
       }
     },
@@ -647,8 +611,8 @@
         {
           "voice": "mentor",
           "comment_type": "fun_commentary",
-          "presentation_form": "contrast_pair",
-          "text": "提示技巧：只是多调用几次模型。\n系统基础模式：把任务拆开、把产物交清，让推理、工具和状态能被编排。\n它提供可控骨架，不会自动长成完整智能体。"
+          "presentation_form": "short_paragraph",
+          "text": "\"至关重要\"不是礼貌性收尾。多步推理、工具集成、状态管理，后面这些大家伙都要在\"分而治之、输出接输入\"这层地基上盖。归档本章时别存成\"又学一招\"，存成\"地基打好了\"。"
         }
       ]
     }

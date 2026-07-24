@@ -89,6 +89,8 @@ For every beat:
 4. Select `mentor`, `student`, or both by source fit, never mechanically from difficulty. Keep at least one voice per beat and audit each chapter toward at least 70 percent coverage for each voice without padding.
 5. When paired, define complementary jobs first. Then give every voice its own type, contribution, strategy, delivery design, presentation form, analogy decision, tone, and maximum length.
 
+Draft all beat plans for a chapter, then run the chapter plan audit and concept-ownership checks from `analysis-guidelines.md` and rebalance failing drafts before patching.
+
 Create a `beat_plans` patch containing every beat exactly once. Apply each item's inner `plan` value, then validate with `--through 4`.
 
 ## Completion gate
